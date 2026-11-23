@@ -23,7 +23,10 @@ git clone https://github.com/mdnzaa/zantro.git
 cd zantro
 npm install
 npm start
-<img width="1252" height="771" alt="Capture d&#39;écran 2026-11-23 233854" src="https://github.com/user-attachments/assets/f8c78580-0545-441d-8f4f-3d8c14a36364" />
-<img width="1054" height="722" alt="Capture d&#39;écran 2026-11-23 233950" src="https://github.com/user-attachments/assets/0743f13b-f4aa-4303-8c7f-3e6a20deee5b" />
-<img width="1100" height="684" alt="Capture d&#39;écran 2026-11-23 233955" src="https://github.com/user-attachments/assets/0a54e934-d89c-490a-bcf2-022e7e023589" />
-<img width="1915" height="1079" alt="Capture d&#39;écran 2026-11-23 233933" src="https://github.com/user-attachments/assets/599876d6-17e4-41b5-822f-7fc1c7ef9c9a" />
+```
+## Screenshots
+<img width="1915" height="1079" alt="Capture d&#39;écran 2026-11-23 233933" src="https://github.com/user-attachments/assets/5b5387b1-194e-48ee-9767-aa7ccda0a989" />
+<img width="1054" height="722" alt="Capture d&#39;écran 2026-11-23 233950" src="https://github.com/user-attachments/assets/d0a2db64-9a5e-424c-89e1-bfa6f3e5c73f" />
+<img width="1100" height="684" alt="Capture d&#39;écran 2026-11-23 233955" src="https://github.com/user-attachments/assets/685606cd-ca65-4eda-9f27-a55d443c42e5" />
+<img width="1252" height="771" alt="Capture d&#39;écran 2026-11-23 233854" src="https://github.com/user-attachments/assets/036f2a57-9ad8-4414-b1e0-2898d5d87931" />
+
