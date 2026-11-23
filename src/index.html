@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zantro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- INTRO ANIMÉE -->
+  <div id="splash-screen" class="splash-screen">
+    <div class="z-ambient-glow"></div>
+    <div class="splash-content">
+      <div class="z-logo-container">
+        <svg class="z-svg" viewBox="0 0 160 180" shape-rendering="geometricPrecision" fill="none">
+          <defs>
+            <linearGradient id="zBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#a80610" />
+              <stop offset="100%" stop-color="#e50914" />
+            </linearGradient>
+            <linearGradient id="zDiagGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#ff3352" />
+              <stop offset="50%" stop-color="#e50914" />
+              <stop offset="100%" stop-color="#9e040e" />
+            </linearGradient>
+          </defs>
+          <polygon class="z-bar z-top" points="24,20 136,20 120,48 24,48" fill="url(#zBarGrad)" />
+          <polygon class="z-bar z-bottom" points="40,132 136,132 136,160 24,160" fill="url(#zBarGrad)" />
+          <polygon class="z-bar z-diag" points="136,20 56,160 24,160 104,20" fill="url(#zDiagGrad)" />
+        </svg>
+      </div>
+      <div class="splash-wordmark">ZANTRO</div>
+    </div>
+  </div>
+
+  <!-- ONBOARDING PROFIL -->
+  <div id="onboarding-modal" class="onboarding-backdrop hidden">
+    <div class="onboarding-card">
+      <div class="onboarding-logo">
+        <svg viewBox="0 0 160 180" shape-rendering="geometricPrecision" fill="none">
+          <polygon points="24,20 136,20 120,48 24,48" fill="#b20710" />
+          <polygon points="40,132 136,132 136,160 24,160" fill="#b20710" />
+          <polygon points="136,20 56,160 24,160 104,20" fill="#ff2442" />
+        </svg>
+      </div>
+      <h1 data-i18n="onboarding.title">Bienvenue dans Zantro</h1>
+      <p data-i18n="onboarding.subtitle">Choisissez votre nom d'utilisateur pour créer votre espace cinéma personnel.</p>
+      <form id="onboarding-form" class="onboarding-form">
+        <input type="text" id="onboarding-input" maxlength="32" required autocomplete="off" data-i18n-placeholder="onboarding.placeholder" />
+        <button type="submit" class="btn-primary onboarding-submit" data-i18n="onboarding.button">Entrer dans Zantro</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- GLISSER-DÉPOSER -->
+  <div id="drop-overlay" class="drop-overlay hidden">
+    <div class="drop-box">
+      <svg class="drop-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="17 8 12 3 7 8"></polyline>
+        <line x1="12" y1="3" x2="12" y2="15"></line>
+      </svg>
+      <p data-i18n="library.dropOverlay">Déposez vos films ou dossiers ici</p>
+    </div>
+  </div>
+
+  <!-- APPLICATION -->
+  <div id="app" class="app">
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="brand" id="brand-logo">
+          <svg class="brand-icon" viewBox="0 0 160 180" shape-rendering="geometricPrecision" fill="none">
+            <polygon points="24,20 136,20 120,48 24,48" fill="#b20710" />
+            <polygon points="40,132 136,132 136,160 24,160" fill="#b20710" />
+            <polygon points="136,20 56,160 24,160 104,20" fill="#ff2442" />
+          </svg>
+          <span>ZANTRO</span>
+        </div>
+
+        <nav class="nav-tabs">
+          <button class="nav-tab active" data-view="home" data-i18n="nav.home">Accueil</button>
+          <button class="nav-tab" data-view="categories" data-i18n="nav.categories">Catégories</button>
+          <button class="nav-tab" data-view="favorites" data-i18n="nav.favorites">Favoris</button>
+          <button class="nav-tab" data-view="manage" data-i18n="nav.manage">Gérer mes films</button>
+        </nav>
+      </div>
+
+      <div class="topbar-right">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="search-input" data-i18n-placeholder="nav.searchPlaceholder" placeholder="Rechercher..." />
+        </div>
+
+        <div id="welcome-banner" class="user-pill hidden" title="Profil">
+          <span id="user-avatar-initial" class="user-avatar-initial"></span>
+          <span id="welcome-text" class="user-pill-text"></span>
+        </div>
+
+        <button class="icon-btn" id="btn-theme-quick" title="Thème">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button class="icon-btn" id="btn-settings" data-i18n-title="nav.settings" title="Paramètres">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- VUE CINÉMA -->
+    <main id="cinema-view" class="main-content">
+      <section id="hero-section" class="hero hidden">
+        <div class="hero-backdrop" id="hero-backdrop"></div>
+        <div class="hero-vignette"></div>
+        <div class="hero-content">
+          <div class="hero-info">
+            <div class="hero-eyebrow">
+              <span class="hero-badge" data-i18n="hero.featured">À la une</span>
+              <span class="hero-sep">·</span>
+              <span id="hero-cat"></span>
+              <span class="hero-sep">·</span>
+              <span id="hero-year"></span>
+            </div>
+            <h1 id="hero-title" class="hero-title"></h1>
+            <p id="hero-synopsis" class="hero-synopsis hidden"></p>
+            <p id="hero-cast" class="hero-cast hidden"></p>
+            <div class="hero-actions">
+              <button class="btn-primary" id="hero-play-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <span id="hero-play-label">Regarder</span>
+              </button>
+              <button class="btn-glass" id="hero-info-btn" data-i18n="hero.info">Plus d'infos</button>
+              <button class="btn-glass btn-icon-only" id="hero-fav-btn" title="Favori">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="hero-poster-wrap hidden" id="hero-poster-wrap">
+            <img id="hero-poster" class="hero-poster" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <div id="category-bar" class="category-bar hidden"></div>
+      <div id="netflix-rows"></div>
+
+      <section id="grid-section" class="library-section hidden">
+        <div id="video-grid" class="video-grid"></div>
+      </section>
+
+      <div id="empty-state" class="empty-state hidden">
+        <svg class="empty-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+          <polygon points="10 9 16 12 10 15 10 9" fill="currentColor" stroke="none"></polygon>
+        </svg>
+        <h3 id="empty-title" data-i18n="library.emptyTitle">Votre bibliothèque est vide</h3>
+        <p id="empty-desc" data-i18n="library.emptyDesc"></p>
+        <button class="btn-primary" id="empty-go-manage" data-i18n="library.goManage">Ajouter des films</button>
+      </div>
+    </main>
+
+    <!-- VUE GESTION DES MÉDIAS -->
+    <main id="manage-view" class="manage-view hidden">
+      <div class="manage-header">
+        <div>
+          <h1 data-i18n="manage.title">Gestion de la bibliothèque</h1>
+          <p data-i18n="manage.subtitle"></p>
+        </div>
+        <div class="manage-actions">
+          <button class="btn-primary" id="manage-add-file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span data-i18n="manage.addFile">Ajouter un film</span>
+          </button>
+          <button class="btn-outline" id="manage-add-folder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            <span data-i18n="manage.addFolder">Ajouter un dossier</span>
+          </button>
+        </div>
+      </div>
+
+      <p class="drop-hint-bar" data-i18n="manage.dropHint"></p>
+
+      <div class="manage-sources-grid">
+        <div class="source-panel">
+          <h3 data-i18n="manage.foldersTitle">Dossiers surveillés</h3>
+          <div id="folders-list" class="folders-list"></div>
+        </div>
+        <div class="source-panel">
+          <h3 data-i18n="manage.filesTitle">Fichiers individuels</h3>
+          <div id="files-list" class="folders-list"></div>
+        </div>
+      </div>
+
+      <div class="manage-movies-panel">
+        <h3 id="manage-movies-title"></h3>
+        <div id="manage-movies-list" class="manage-movies-list"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- FICHE FILM -->
+  <div id="detail-modal" class="modal-backdrop hidden">
+    <div class="detail-card">
+      <button id="detail-close" class="detail-close">&times;</button>
+      <div class="detail-banner" id="detail-banner">
+        <div class="detail-banner-grad"></div>
+        <div class="detail-header-layout">
+          <img id="detail-poster" class="detail-poster hidden" alt="" />
+          <div class="detail-banner-content">
+            <div class="detail-badges">
+              <span class="detail-cat-tag" id="detail-cat"></span>
+              <span id="detail-year"></span>
+              <span id="detail-size"></span>
+            </div>
+            <h2 id="detail-title"></h2>
+            <div class="detail-actions">
+              <button class="btn-primary" id="detail-play-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <span data-i18n="detail.play">Regarder</span>
+              </button>
+              <button class="btn-glass btn-icon-only" id="detail-fav-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <button class="btn-glass" id="detail-edit-btn" data-i18n="detail.edit">Modifier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-body">
+        <p id="detail-synopsis" class="detail-synopsis"></p>
+        <div id="detail-cast-row" class="detail-cast-section hidden">
+          <strong class="cast-heading" data-i18n="detail.cast">Distribution</strong>
+          <div id="detail-cast-grid" class="cast-grid"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FICHE BIOGRAPHIE ACTEUR -->
+  <div id="actor-modal" class="modal-backdrop hidden">
+    <div class="actor-card-modal">
+      <button id="actor-close" class="close-btn actor-close">&times;</button>
+      <div class="actor-modal-head">
+        <img id="actor-modal-img" class="actor-modal-img hidden" />
+        <div>
+          <h3 id="actor-modal-name"></h3>
+          <p id="actor-modal-role" class="actor-modal-role"></p>
+        </div>
+      </div>
+      <p id="actor-modal-bio" class="actor-modal-bio"></p>
+    </div>
+  </div>
+
+  <!-- MODALE ÉDITION -->
+  <div id="edit-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 data-i18n="edit.title">Modifier les métadonnées</h2>
+        <button id="edit-close" class="close-btn">&times;</button>
+      </div>
+      <form id="edit-form" class="modal-body">
+        <div class="edit-row-2">
+          <div>
+            <label class="setting-label" data-i18n="edit.name">Titre</label>
+            <input type="text" id="edit-title" class="text-input" required />
+          </div>
+          <div>
+            <label class="setting-label" data-i18n="edit.year">Année</label>
+            <input type="text" id="edit-year" class="text-input" maxlength="4" placeholder="2024" />
+          </div>
+        </div>
+        <div>
+          <label class="setting-label" data-i18n="edit.category">Catégorie</label>
+          <select id="edit-category" class="text-input"></select>
+        </div>
+        <div>
+          <label class="setting-label" data-i18n="edit.actors">Acteurs</label>
+          <input type="text" id="edit-actors" class="text-input" data-i18n-placeholder="edit.actorsPlaceholder" />
+        </div>
+        <div>
+          <label class="setting-label" data-i18n="edit.synopsis">Synopsis</label>
+          <textarea id="edit-synopsis" class="text-input textarea" rows="3" data-i18n-placeholder="edit.synopsisPlaceholder"></textarea>
+        </div>
+        <div>
+          <label class="setting-label" data-i18n="edit.banner">Affiche / Bannière</label>
+          <div class="banner-picker-row">
+            <button type="button" id="edit-pick-banner" class="secondary-action-btn" data-i18n="edit.chooseBanner">Choisir une image</button>
+            <button type="button" id="edit-reset-banner" class="secondary-action-btn" data-i18n="edit.resetBanner">Image auto</button>
+          </div>
+          <div id="edit-banner-preview" class="edit-banner-preview hidden"></div>
+        </div>
+        <button type="submit" class="btn-primary full-width" data-i18n="edit.save">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LECTEUR VIDÉO -->
+  <div id="player-modal" class="player-modal hidden">
+    <video id="video-element" playsinline></video>
+    <div id="player-loading" class="player-loading hidden">
+      <div class="spinner"></div>
+      <div id="player-loading-text">Chargement...</div>
+    </div>
+    <div id="player-ui" class="player-ui">
+      <div class="player-top">
+        <button id="player-back" class="player-icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+        <div>
+          <div id="player-title" class="player-title"></div>
+          <div id="player-subtitle" class="player-subtitle"></div>
+        </div>
+      </div>
+      <div class="player-center-indicator hidden" id="player-center-indicator"></div>
+      <div class="player-bottom">
+        <div class="progress-container" id="progress-container">
+          <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-bar-fill"></div></div>
+          <div class="progress-thumb" id="progress-thumb"></div>
+        </div>
+        <div class="controls-row">
+          <div class="controls-left">
+            <button id="ctrl-play" class="player-icon-btn"><svg id="ctrl-play-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></button>
+            <button id="ctrl-prev" class="player-icon-btn" data-i18n-title="player.previous"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"></line></svg></button>
+            <button id="ctrl-next" class="player-icon-btn" data-i18n-title="player.next"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"></line></svg></button>
+            <div class="volume-control">
+              <button id="ctrl-mute" class="player-icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></button>
+              <input type="range" id="ctrl-volume" min="0" max="1" step="0.05" value="1" />
+            </div>
+            <span class="time-display"><span id="time-current">0:00</span> / <span id="time-total">0:00</span></span>
+          </div>
+          <div class="controls-right">
+            <button id="ctrl-speed" class="speed-pill" data-i18n-title="player.speed">1x</button>
+            <button id="ctrl-pip" class="player-icon-btn" data-i18n-title="player.pip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><rect x="12" y="9" width="8" height="6" rx="1" fill="currentColor"></rect></svg></button>
+            <button id="ctrl-fullscreen" class="player-icon-btn" data-i18n-title="player.fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARAMÈTRES -->
+  <div id="settings-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 data-i18n="settings.title">Paramètres</h2>
+        <button id="btn-close-settings" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <label class="setting-label" data-i18n="settings.profile">Profil</label>
+          <div class="profile-edit-row">
+            <input type="text" id="settings-username-input" class="text-input" maxlength="32" />
+            <button id="settings-username-save" class="btn-outline-sm" data-i18n="settings.save">Enregistrer</button>
+          </div>
+        </div>
+        <div>
+          <label class="setting-label" data-i18n="settings.appearance">Thème</label>
+          <div class="segmented-control">
+            <button class="theme-card" data-theme-choice="dark" data-i18n="settings.themeDark">Sombre</button>
+            <button class="theme-card" data-theme-choice="light" data-i18n="settings.themeLight">Clair</button>
+            <button class="theme-card" data-theme-choice="auto" data-i18n="settings.themeAuto">Auto</button>
+          </div>
+        </div>
+        <div>
+          <label class="setting-label" data-i18n="settings.language">Langue</label>
+          <div class="segmented-control">
+            <button class="lang-pill" data-lang-choice="fr">Français</button>
+            <button class="lang-pill" data-lang-choice="en">English</button>
+            <button class="lang-pill" data-lang-choice="es">Español</button>
+          </div>
+        </div>
+        <div>
+          <label class="setting-label" data-i18n="settings.experience">Préférences</label>
+          <div class="toggle-row">
+            <span data-i18n="settings.introSound">Ambiance zen à l'ouverture</span>
+            <label class="switch"><input type="checkbox" id="toggle-intro-sound" checked /><span class="slider"></span></label>
+          </div>
+          <div class="btn-pair">
+            <button id="btn-replay-intro" class="secondary-action-btn" data-i18n="settings.replayIntro">Rejouer l'intro</button>
+            <button id="btn-clear-progress" class="danger-action-btn" data-i18n="settings.clearProgress">Effacer l'historique</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "categories": "Categorías",
+    "favorites": "Favoritos",
+    "manage": "Gestionar",
+    "searchPlaceholder": "Buscar película, actor...",
+    "settings": "Ajustes"
+  },
+  "welcome": {
+    "greeting": "Bienvenido, {name}"
+  },
+  "onboarding": {
+    "title": "Bienvenido a Zantro",
+    "subtitle": "Elige tu nombre de usuario para personalizar tu espacio de cine.",
+    "placeholder": "Tu nombre de usuario...",
+    "button": "Entrar en Zantro"
+  },
+  "categories": {
+    "all": "Todas",
+    "action": "Acción",
+    "scifi": "Ciencia ficción",
+    "comedy": "Comedia",
+    "drama": "Drama",
+    "horror": "Terror y Suspense",
+    "animation": "Animación y Anime",
+    "series": "Series",
+    "doc": "Documental",
+    "other": "Otros vídeos"
+  },
+  "hero": {
+    "featured": "Destacado",
+    "resume": "Reanudar",
+    "play": "Reproducir",
+    "info": "Más info",
+    "castPrefix": "Reparto:"
+  },
+  "detail": {
+    "play": "Reproducir",
+    "edit": "Editar ficha",
+    "cast": "Actores:",
+    "noSynopsis": "Sin sinopsis. Haz clic en « Editar ficha » para añadir actores, banner e historia."
+  },
+  "edit": {
+    "title": "Editar ficha de película",
+    "name": "Título",
+    "category": "Categoría",
+    "year": "Año",
+    "actors": "Actores (separados por comas)",
+    "actorsPlaceholder": "Ej: Leonardo DiCaprio, Tom Hardy",
+    "synopsis": "Sinopsis",
+    "synopsisPlaceholder": "Resumen de la película...",
+    "banner": "Imagen de banner",
+    "chooseBanner": "Elegir imagen",
+    "resetBanner": "Captura auto",
+    "save": "Guardar"
+  },
+  "manage": {
+    "title": "Añadir y clasificar películas",
+    "subtitle": "Añade tus archivos MP4 o carpetas aquí y organízalos por categoría.",
+    "addFile": "Añadir MP4",
+    "addFolder": "Añadir carpeta",
+    "dropHint": "O arrastra y suelta archivos y carpetas aquí.",
+    "foldersTitle": "Carpetas vigiladas",
+    "filesTitle": "Archivos individuales",
+    "moviesTitle": "Tus películas ({count})",
+    "noFolders": "No hay carpetas añadidas.",
+    "noFiles": "No hay archivos individuales añadidos.",
+    "remove": "Quitar",
+    "editBtn": "Info / Categoría"
+  },
+  "library": {
+    "continueWatching": "Seguir viendo",
+    "emptyTitle": "Tu espacio de cine está listo",
+    "emptyDesc": "Ve a « Gestionar » para añadir tus primeros archivos MP4 o carpetas.",
+    "goManage": "Añadir películas",
+    "noResults": "No se encontraron películas.",
+    "dropOverlay": "Suelta tus películas MP4 o carpetas aquí"
+  },
+  "player": {
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "speed": "Velocidad",
+    "pip": "Imagen en imagen",
+    "fullscreen": "Pantalla completa"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "profile": "Perfil",
+    "save": "Guardar",
+    "appearance": "Apariencia",
+    "themeDark": "Oscuro",
+    "themeLight": "Claro",
+    "themeAuto": "Auto",
+    "language": "Idioma",
+    "experience": "Experiencia",
+    "introSound": "Ambiente zen de inicio",
+    "replayIntro": "Repetir intro",
+    "clearProgress": "Borrar historial"
+  }
+}

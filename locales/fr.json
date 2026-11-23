@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "categories": "Catégories",
+    "favorites": "Favoris",
+    "manage": "Gérer mes films",
+    "searchPlaceholder": "Rechercher un film, acteur...",
+    "settings": "Paramètres"
+  },
+  "welcome": {
+    "greeting": "Bienvenue, {name}"
+  },
+  "onboarding": {
+    "title": "Bienvenue dans Zantro",
+    "subtitle": "Choisissez votre nom d'utilisateur pour créer votre espace cinéma personnel.",
+    "placeholder": "Votre nom d'utilisateur...",
+    "button": "Entrer dans Zantro"
+  },
+  "categories": {
+    "all": "Toutes",
+    "action": "Action",
+    "scifi": "Sci-Fi & Fantastique",
+    "comedy": "Comédie",
+    "drama": "Drame",
+    "horror": "Horreur & Thriller",
+    "animation": "Animation & Animés",
+    "series": "Séries",
+    "doc": "Documentaire",
+    "other": "Autres vidéos"
+  },
+  "hero": {
+    "featured": "À la une",
+    "resume": "Reprendre",
+    "play": "Regarder",
+    "info": "Plus d'infos",
+    "castPrefix": "Avec :"
+  },
+  "detail": {
+    "play": "Regarder",
+    "edit": "Modifier la fiche",
+    "cast": "Acteurs :",
+    "noSynopsis": "Aucun synopsis renseigné. Cliquez sur « Modifier la fiche » pour ajouter les acteurs, la bannière et l'histoire."
+  },
+  "edit": {
+    "title": "Modifier la fiche du film",
+    "name": "Titre",
+    "category": "Catégorie",
+    "year": "Année",
+    "actors": "Acteurs (séparés par des virgules)",
+    "actorsPlaceholder": "Ex: Leonardo DiCaprio, Marion Cotillard, Tom Hardy",
+    "synopsis": "Synopsis",
+    "synopsisPlaceholder": "Résumé du film...",
+    "banner": "Image bannière",
+    "chooseBanner": "Choisir une image",
+    "resetBanner": "Image auto",
+    "save": "Enregistrer"
+  },
+  "manage": {
+    "title": "Ajouter & classer vos films",
+    "subtitle": "Ajoutez vos fichiers MP4 ou dossiers ici, puis classez-les par catégorie pour garder votre accueil propre.",
+    "addFile": "Ajouter un MP4",
+    "addFolder": "Ajouter un dossier",
+    "dropHint": "Ou glissez-déposez vos fichiers et dossiers n'importe où.",
+    "foldersTitle": "Dossiers surveillés",
+    "filesTitle": "Fichiers individuels",
+    "moviesTitle": "Vos films ({count})",
+    "noFolders": "Aucun dossier ajouté.",
+    "noFiles": "Aucun fichier individuel ajouté.",
+    "remove": "Retirer",
+    "editBtn": "Infos / Catégorie"
+  },
+  "library": {
+    "continueWatching": "Reprendre la lecture",
+    "emptyTitle": "Votre espace cinéma est prêt",
+    "emptyDesc": "Allez dans « Gérer mes films » pour ajouter vos premiers fichiers MP4 ou dossiers.",
+    "goManage": "Ajouter des films",
+    "noResults": "Aucun film trouvé.",
+    "dropOverlay": "Déposez vos films MP4 ou dossiers ici"
+  },
+  "player": {
+    "previous": "Précédent",
+    "next": "Suivant",
+    "speed": "Vitesse",
+    "pip": "Image dans l'image",
+    "fullscreen": "Plein écran"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "profile": "Profil",
+    "save": "Enregistrer",
+    "appearance": "Apparence",
+    "themeDark": "Sombre",
+    "themeLight": "Clair",
+    "themeAuto": "Auto",
+    "language": "Langue",
+    "experience": "Expérience",
+    "introSound": "Ambiance zen à l'ouverture",
+    "replayIntro": "Rejouer l'intro",
+    "clearProgress": "Effacer l'historique de lecture"
+  }
+}

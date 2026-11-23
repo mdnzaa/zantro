@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "favorites": "Favorites",
+    "manage": "Manage Movies",
+    "searchPlaceholder": "Search movie, actor...",
+    "settings": "Settings"
+  },
+  "welcome": {
+    "greeting": "Welcome, {name}"
+  },
+  "onboarding": {
+    "title": "Welcome to Zantro",
+    "subtitle": "Choose your username to personalize your private cinema space.",
+    "placeholder": "Your username...",
+    "button": "Enter Zantro"
+  },
+  "categories": {
+    "all": "All",
+    "action": "Action",
+    "scifi": "Sci-Fi & Fantasy",
+    "comedy": "Comedy",
+    "drama": "Drama",
+    "horror": "Horror & Thriller",
+    "animation": "Animation & Anime",
+    "series": "TV Shows",
+    "doc": "Documentary",
+    "other": "Other Videos"
+  },
+  "hero": {
+    "featured": "Spotlight",
+    "resume": "Resume",
+    "play": "Play",
+    "info": "More Info",
+    "castPrefix": "Starring:"
+  },
+  "detail": {
+    "play": "Play",
+    "edit": "Edit Info",
+    "cast": "Cast:",
+    "noSynopsis": "No synopsis yet. Click « Edit Info » to add actors, banner image and story."
+  },
+  "edit": {
+    "title": "Edit Movie Info",
+    "name": "Title",
+    "category": "Category",
+    "year": "Year",
+    "actors": "Cast (comma separated)",
+    "actorsPlaceholder": "e.g. Leonardo DiCaprio, Tom Hardy",
+    "synopsis": "Synopsis",
+    "synopsisPlaceholder": "Movie overview...",
+    "banner": "Banner Image",
+    "chooseBanner": "Choose image",
+    "resetBanner": "Auto frame",
+    "save": "Save"
+  },
+  "manage": {
+    "title": "Add & Organize Your Movies",
+    "subtitle": "Add your MP4 files or folders here and organize them by category to keep your Home clean.",
+    "addFile": "Add MP4",
+    "addFolder": "Add Folder",
+    "dropHint": "Or drag and drop files and folders anywhere.",
+    "foldersTitle": "Watched Folders",
+    "filesTitle": "Individual Files",
+    "moviesTitle": "Your Movies ({count})",
+    "noFolders": "No folders added.",
+    "noFiles": "No individual files added.",
+    "remove": "Remove",
+    "editBtn": "Info / Category"
+  },
+  "library": {
+    "continueWatching": "Continue Watching",
+    "emptyTitle": "Your cinema is ready",
+    "emptyDesc": "Open « Manage Movies » to add your first MP4 files or folders.",
+    "goManage": "Add Movies",
+    "noResults": "No movies found.",
+    "dropOverlay": "Drop your MP4 movies or folders here"
+  },
+  "player": {
+    "previous": "Previous",
+    "next": "Next",
+    "speed": "Speed",
+    "pip": "Picture-in-Picture",
+    "fullscreen": "Fullscreen"
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "save": "Save",
+    "appearance": "Appearance",
+    "themeDark": "Dark",
+    "themeLight": "Light",
+    "themeAuto": "Auto",
+    "language": "Language",
+    "experience": "Experience",
+    "introSound": "Zen startup ambiance",
+    "replayIntro": "Replay intro",
+    "clearProgress": "Clear watch history"
+  }
+}
